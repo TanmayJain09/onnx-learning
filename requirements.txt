@@ -6,6 +6,7 @@ onnxruntime-gpu             # GPU inference (CUDA)
 
 #visualisation
 matplotlib
+plotly
 
 # For exporting from frameworks
 tensorflow
