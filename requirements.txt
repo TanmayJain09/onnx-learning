@@ -1,6 +1,7 @@
 # Core packages
 onnx                        # the ONNX spec library (for inspecting/building graphs)
 onnxruntime                 # CPU-only inference
+onnxscript
 onnxruntime-gpu             # GPU inference (CUDA)
 
 # For exporting from frameworks
