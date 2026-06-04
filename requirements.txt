@@ -5,6 +5,7 @@ onnxscript
 onnxruntime-gpu             # GPU inference (CUDA)
 
 # For exporting from frameworks
+tensorflow
 torch
 torchvision                       # PyTorch has ONNX export built in
 tf2onnx                     # TensorFlow → ONNX
