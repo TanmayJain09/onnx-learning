@@ -4,6 +4,9 @@ onnxruntime                 # CPU-only inference
 onnxscript
 onnxruntime-gpu             # GPU inference (CUDA)
 
+#visualisation
+matplotlib
+
 # For exporting from frameworks
 tensorflow
 torch
