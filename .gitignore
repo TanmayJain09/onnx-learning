@@ -1,0 +1,47 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# ONNX / model files (optional ignore if large models not tracked)
+*.onnx
+*.onnx.data
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Dist / build
+dist/
+build/
+*.egg-info/
+
+# TensorFlow / PyTorch caches
+*.h5
+*.pt
+*.pth
+
+# Netron temp files (if any)
+*.json
