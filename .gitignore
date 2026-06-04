@@ -42,6 +42,3 @@ build/
 *.h5
 *.pt
 *.pth
-
-# Netron temp files (if any)
-*.json
