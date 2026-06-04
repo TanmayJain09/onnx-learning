@@ -4,7 +4,8 @@ onnxruntime                 # CPU-only inference
 onnxruntime-gpu             # GPU inference (CUDA)
 
 # For exporting from frameworks
-torch                       # PyTorch has ONNX export built in
+torch
+torchvision                       # PyTorch has ONNX export built in
 tf2onnx                     # TensorFlow → ONNX
 skl2onnx                    # scikit-learn → ONNX
 
