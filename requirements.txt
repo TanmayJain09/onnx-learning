@@ -1,0 +1,16 @@
+# Core packages
+onnx                        # the ONNX spec library (for inspecting/building graphs)
+onnxruntime                 # CPU-only inference
+onnxruntime-gpu             # GPU inference (CUDA)
+
+# For exporting from frameworks
+torch                       # PyTorch has ONNX export built in
+tf2onnx                     # TensorFlow → ONNX
+skl2onnx                    # scikit-learn → ONNX
+
+# For Hugging Face transformer models
+optimum[onnxruntime]        # CPU
+optimum[onnxruntime-gpu]    # GPU   
+
+# For quantization
+onnxruntime                 # quantization tools are bundled in onnxruntime
