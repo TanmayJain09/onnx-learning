@@ -61,7 +61,6 @@ def raw():
 
     raw_model_path = opt_models / "raw.onnx"
 
-    # copy base model into your controlled directory
     shutil.copy(base_input_model, raw_model_path)
 
     so = ort.SessionOptions()
@@ -72,6 +71,24 @@ def raw():
 
     return run(raw_model_path, "raw", so)
 
+def basic():
+
+    basic_model_path = opt_models / "basic.onnx"
+    basic_model_path.parent.mkdir(parents=True, exist_ok=True)
+
+    so = ort.SessionOptions()
+
+    so.graph_optimization_level = ort.GraphOptimizationLevel.ORT_ENABLE_BASIC
+
+    so.enable_mem_pattern = True
+
+    so.enable_profiling = True
+    so.profile_file_prefix = str(opt_profiles / "basic")
+
+    so.optimized_model_filepath = str(basic_model_path)
+
+    # IMPORTANT FIX: run ORIGINAL model
+    return run(base_input_model, "basic", so)
 
 #main function
 def main():
@@ -79,8 +96,8 @@ def main():
     results = {}
 
     results["raw"] = raw()
+    results["basic"] = basic()
 
-    # FIXED
     with open(opt_reports / "benchmark.json", "w") as f:
         json.dump(results, f, indent=4)
 
