@@ -1,7 +1,8 @@
 ONNX MODEL REPORT
 ==================
 
-Model: C:/Tanmay Jain E7450 Data/onnx_learning/onnx-learning/assets/sample_models/tensorflow_exported.onnx
+Model: tensorflow_exported
+Model Path: C:/Tanmay Jain E7450 Data/onnx_learning/onnx-learning/assets/sample_models/tensorflow_exported.onnx
 Nodes: 141
 
 INPUTS:

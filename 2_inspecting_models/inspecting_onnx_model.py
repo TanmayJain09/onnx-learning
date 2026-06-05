@@ -115,7 +115,8 @@ def inspect_onnx (model_path, model_name,output_dir) :
     with open(output_file_txt_report_dir, "w") as f:
         f.write("ONNX MODEL REPORT\n")
         f.write("==================\n\n")
-        f.write(f"Model: {model_path}\n")
+        f.write(f"Model: {model_name}\n")
+        f.write(f"Model Path: {model_path}\n")
         f.write(f"Nodes: {score}\n\n")
 
         f.write("INPUTS:\n")

@@ -11,4 +11,4 @@ Operator Dominance:
 - Conv ratio: 0.37
 
 Warnings:
-- Unusual ops detected: ['Transpose', 'Pad', 'Clip', 'Squeeze', 'GlobalAveragePool', 'Mul']
+- Unusual ops detected: ['Clip', 'Mul', 'GlobalAveragePool', 'Transpose', 'Squeeze', 'Pad']
