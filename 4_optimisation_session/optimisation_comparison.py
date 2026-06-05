@@ -87,8 +87,28 @@ def basic():
 
     so.optimized_model_filepath = str(basic_model_path)
 
-    # IMPORTANT FIX: run ORIGINAL model
     return run(base_input_model, "basic", so)
+
+def full():
+    full_model_path = opt_models / "full.onnx"
+    full_model_path.parent.mkdir(parents=True, exist_ok=True)
+
+    so=ort.SessionOptions()
+    so.graph_optimization_level = ort.GraphOptimizationLevel.ORT_ENABLE_ALL
+
+    so.intra_op_num_threads=4
+    so.inter_op_num_threads=1
+
+    so.execution_mode = ort.ExecutionMode.ORT_SEQUENTIAL
+
+    so.enable_mem_pattern = True
+
+    so.enable_profiling = True
+    so.profile_file_prefix = str(opt_profiles / "full")
+
+    so.optimized_model_filepath = str(full_model_path)
+
+    return run(base_input_model, "full", so)
 
 #main function
 def main():
@@ -97,6 +117,7 @@ def main():
 
     results["raw"] = raw()
     results["basic"] = basic()
+    results["full"] = full()
 
     with open(opt_reports / "benchmark.json", "w") as f:
         json.dump(results, f, indent=4)
