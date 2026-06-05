@@ -27,36 +27,34 @@ os.makedirs(opt_reports,exist_ok=True)
 x = np.random.randn(1, 224, 224, 3).astype(np.float32)
 
 #run function
-def run(model_path, name, session_options) : 
+def run(model_path, name, session_options):
+
     session = ort.InferenceSession(
         model_path,
         sess_options=session_options,
         providers=["CPUExecutionProvider"]
     )
-    
+
     input_name = session.get_inputs()[0].name
 
-    #warmup
     for _ in range(5):
-        session.run(None, {input_name : x})
-    
-    # timing
-    times=[]
-    output=None
+        session.run(None, {input_name: x})
 
-    for _ in range(20) : 
+    times = []
+    output = None
+
+    for _ in range(20):
         start = time.time()
-        output = session.run(None,{input_name : x})
+        output = session.run(None, {input_name: x})
         end = time.time()
-        times.append(end-start)
-    
-    #save output
-    np.save(f"results/{name}.npy",output[0])
+        times.append(end - start)
 
-    return{
-        "avg_latency" : float(np.mean(times)),
-        "min_latency" : float(np.min(times)),
-        "max_latency" : float(np.max(times))
+    np.save(opt_results / f"{name}.npy", output[0])
+
+    return {
+        "avg_latency": float(np.mean(times)),
+        "min_latency": float(np.min(times)),
+        "max_latency": float(np.max(times))
     }
 
 def raw():
@@ -82,8 +80,8 @@ def main():
 
     results["raw"] = raw()
 
-    #saving report
-    with open("report/benchmark.json", "w") as f:
+    # FIXED
+    with open(opt_reports / "benchmark.json", "w") as f:
         json.dump(results, f, indent=4)
 
     print("\n====================")
