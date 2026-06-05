@@ -1,0 +1,21 @@
+ONNX MODEL REPORT
+==================
+
+Model: sklearn_exported
+Model Path: C:/Tanmay Jain E7450 Data/onnx_learning/onnx-learning/assets/sample_models/sklearn_exported.onnx
+Nodes: 3
+
+INPUTS:
+- float_input | ['dynamic', 20] | 1
+
+OUTPUTS:
+- output_label
+- output_probability
+
+OPERATORS:
+- TreeEnsembleClassifier: 1
+- Cast: 1
+- ZipMap: 1
+
+UNIQUE OPS:
+TreeEnsembleClassifier, Cast, ZipMap

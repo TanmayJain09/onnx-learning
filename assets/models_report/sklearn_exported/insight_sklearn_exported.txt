@@ -1,0 +1,14 @@
+ONNX DEBUG INSIGHTS
+====================
+
+Model complexity score: 3
+
+Key Observations:
+- Lightweight model
+
+Operator Dominance:
+- Most used operator: TreeEnsembleClassifier (1 times)
+
+Warnings:
+- Very small graph — possibly incomplete export
+- Unusual ops detected: ['Cast', 'TreeEnsembleClassifier', 'ZipMap']
