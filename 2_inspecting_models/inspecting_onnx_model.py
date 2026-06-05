@@ -109,10 +109,34 @@ def inspect_onnx (model_path, model_name) :
     # output file name and directory
     
     # saving json
-    output_file_json_name = model_name+".json"
+    output_file_json_name = "report_"+model_name+".json"
     output_file_json_dir = output_dir/output_file_json_name
     with open(output_file_json_dir, "w") as f:
         json.dump(report, f, indent=4)
+
+    # text report
+    output_file_txt_report_name = "report_"+model_name+".txt"
+    output_file_txt_report_dir = output_dir/output_file_txt_report_name
+    with open(output_file_txt_report_dir, "w") as f:
+        f.write("ONNX MODEL REPORT\n")
+        f.write("==================\n\n")
+        f.write(f"Model: {model_path}\n")
+        f.write(f"Nodes: {score}\n\n")
+
+        f.write("INPUTS:\n")
+        for i in report["inputs"]:
+            f.write(f"- {i['name']} | {i['shape']} | {i['dtype']}\n")
+
+        f.write("\nOUTPUTS:\n")
+        for o in report["outputs"]:
+            f.write(f"- {o}\n")
+
+        f.write("\nOPERATORS:\n")
+        for k, v in op_counts.most_common():
+            f.write(f"- {k}: {v}\n")
+
+        f.write("\nUNIQUE OPS:\n")
+        f.write(", ".join(report["unique_ops"]))
 
 
 def main() : 
