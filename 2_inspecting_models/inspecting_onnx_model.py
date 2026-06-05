@@ -6,11 +6,6 @@ import onnx
 import json
 from collections import Counter
 
-#defining output directory
-parent_dir = Path(__file__).resolve().parent.parent
-output_dir = parent_dir / "assets" / "models_report"
-output_dir.mkdir(parents=True, exist_ok=True)
-
 #taking the file input from the user 
 def get_onnx_file () : 
     
@@ -46,7 +41,7 @@ def shape_parser(tensor) :
     return shape
 
 #inspection function
-def inspect_onnx (model_path, model_name) : 
+def inspect_onnx (model_path, model_name,output_dir) : 
 
     model = onnx.load(model_path)
     graph = model.graph
@@ -173,7 +168,11 @@ def inspect_onnx (model_path, model_name) :
 
 def main() : 
     file_path , file_name = get_onnx_file()
-    inspect_onnx(file_path,file_name)
+    #defining output directory
+    parent_dir = Path(__file__).resolve().parent.parent
+    output_dir = parent_dir / "assets" / "models_report" / file_name
+    output_dir.mkdir(parents=True, exist_ok=True)
+    inspect_onnx(file_path,file_name,output_dir)
 
 if __name__ == "__main__" : 
     main()
