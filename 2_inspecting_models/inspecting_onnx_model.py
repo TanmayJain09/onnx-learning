@@ -137,6 +137,38 @@ def inspect_onnx (model_path, model_name) :
 
         f.write("\nUNIQUE OPS:\n")
         f.write(", ".join(report["unique_ops"]))
+    
+    # insight summary
+    output_file_txt_insight_name = "insight_"+model_name+".txt"
+    output_file_txt_insight_dir = output_dir/output_file_txt_insight_name
+    with open(output_file_txt_insight_dir, "w") as f:
+        f.write("ONNX DEBUG INSIGHTS\n")
+        f.write("====================\n\n")
+
+        f.write(f"Model complexity score: {score}\n")
+
+        f.write("\nKey Observations:\n")
+
+        if score < 50:
+            f.write("- Lightweight model\n")
+        elif score < 200:
+            f.write("- Medium complexity model\n")
+        else:
+            f.write("- Heavy model (check latency impact)\n")
+
+        f.write("\nOperator Dominance:\n")
+        top_op = op_counts.most_common(1)[0]
+        f.write(f"- Most used operator: {top_op[0]} ({top_op[1]} times)\n")
+
+        if "Conv" in op_counts:
+            f.write(f"- Conv ratio: {op_counts['Conv']/score:.2f}\n")
+
+        f.write("\nWarnings:\n")
+        if report["warnings"]:
+            for w in report["warnings"]:
+                f.write(f"- {w}\n")
+        else:
+            f.write("- No major issues detected\n")
 
 
 def main() : 

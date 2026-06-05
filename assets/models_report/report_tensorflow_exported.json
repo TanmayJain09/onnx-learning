@@ -41,7 +41,7 @@
         "Softmax"
     ],
     "warnings": [
-        "Unusual ops detected: ['GlobalAveragePool', 'Pad', 'Clip', 'Transpose', 'Squeeze', 'Mul']"
+        "Unusual ops detected: ['Mul', 'Squeeze', 'Clip', 'Pad', 'GlobalAveragePool', 'Transpose']"
     ],
     "complexity_score": 141
 }
