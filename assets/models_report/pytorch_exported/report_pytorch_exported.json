@@ -1,0 +1,45 @@
+{
+    "model_name": "pytorch_exported",
+    "num_nodes": 124,
+    "inputs": [
+        {
+            "name": "image",
+            "shape": [
+                "batch_size",
+                3,
+                224,
+                224
+            ],
+            "dtype": 1
+        }
+    ],
+    "outputs": [
+        "logits"
+    ],
+    "op_counts": {
+        "Shape": 1,
+        "Conv": 53,
+        "Relu": 49,
+        "MaxPool": 1,
+        "Add": 16,
+        "ReduceMean": 1,
+        "Concat": 1,
+        "Reshape": 1,
+        "Gemm": 1
+    },
+    "unique_ops": [
+        "Shape",
+        "Conv",
+        "Relu",
+        "MaxPool",
+        "Add",
+        "ReduceMean",
+        "Concat",
+        "Reshape",
+        "Gemm"
+    ],
+    "warnings": [
+        "Unusual ops detected: ['Shape', 'Reshape', 'ReduceMean']"
+    ],
+    "complexity_score": 124
+}

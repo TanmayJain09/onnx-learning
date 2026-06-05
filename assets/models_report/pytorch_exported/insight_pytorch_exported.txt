@@ -1,0 +1,14 @@
+ONNX DEBUG INSIGHTS
+====================
+
+Model complexity score: 124
+
+Key Observations:
+- Medium complexity model
+
+Operator Dominance:
+- Most used operator: Conv (53 times)
+- Conv ratio: 0.43
+
+Warnings:
+- Unusual ops detected: ['Shape', 'Reshape', 'ReduceMean']

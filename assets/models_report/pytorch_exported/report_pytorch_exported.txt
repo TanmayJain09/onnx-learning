@@ -1,0 +1,26 @@
+ONNX MODEL REPORT
+==================
+
+Model: pytorch_exported
+Model Path: C:/Tanmay Jain E7450 Data/onnx_learning/onnx-learning/assets/sample_models/pytorch_exported.onnx
+Nodes: 124
+
+INPUTS:
+- image | ['batch_size', 3, 224, 224] | 1
+
+OUTPUTS:
+- logits
+
+OPERATORS:
+- Conv: 53
+- Relu: 49
+- Add: 16
+- Shape: 1
+- MaxPool: 1
+- ReduceMean: 1
+- Concat: 1
+- Reshape: 1
+- Gemm: 1
+
+UNIQUE OPS:
+Shape, Conv, Relu, MaxPool, Add, ReduceMean, Concat, Reshape, Gemm
