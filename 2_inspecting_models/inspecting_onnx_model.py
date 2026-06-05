@@ -28,3 +28,11 @@ def get_onnx_file () :
     name_without_extension = os.path.splitext(file_name)[0]
 
     return file_path,name_without_extension
+
+def main() : 
+    file_path , file_name = get_onnx_file()
+    print("File Path :",file_path)
+    print("File Name :",file_name)
+
+if __name__ == "__main__" : 
+    main()
